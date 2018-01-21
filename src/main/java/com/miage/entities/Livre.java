@@ -18,6 +18,7 @@ public class Livre extends Media {
 	
 	private String nomEdition;
 	private int nombrePage;
+	private String photo;
 
 	@ManyToOne
 	@JoinColumn(name="CODE_EMPLOYER")
@@ -34,12 +35,13 @@ public class Livre extends Media {
 
 	public Livre(String nom, int quantite, int etat, Date dateCreation, String description,
 			String photo, Employer employe, String auteur, Date anneeDeSortie, String nomEdition, int nombrePage) {
-		super(nom, quantite, etat, dateCreation, description, photo);
+		super(nom, quantite, etat, dateCreation, description);
 		this.auteur = auteur;
 		this.anneeDeSortie = anneeDeSortie;
 		this.nomEdition = nomEdition;
 		this.nombrePage = nombrePage;
 		this.employe = employe;
+		this.photo = photo;
 	}
 	
 	
@@ -60,12 +62,13 @@ public class Livre extends Media {
 	 */
 	public Livre(Long codeMedia, String nom, int quantite, int etat, Date dateCreation, String description,
 			String photo, String auteur, Date anneeDeSortie, String nomEdition, int nombrePage, Employer employe) {
-		super(codeMedia, nom, quantite, etat, dateCreation, description, photo);
+		super(codeMedia, nom, quantite, etat, dateCreation, description);
 		this.auteur = auteur;
 		this.anneeDeSortie = anneeDeSortie;
 		this.nomEdition = nomEdition;
 		this.nombrePage = nombrePage;
 		this.employe = employe;
+		this.photo = photo;
 	}
 
 	public String getAuteur() {
@@ -106,6 +109,14 @@ public class Livre extends Media {
 
 	public void setEmploye(Employer employe) {
 		this.employe = employe;
+	}
+	
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
 	}
 
 //	public Client getClient() {

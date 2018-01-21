@@ -33,23 +33,32 @@ public abstract class Media implements Serializable {
 	
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date dateCreation;
+	
 	private String description;
-	private String photo;	
+	//private String photo;	
 
 	public Media() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Media(String nom, int quantite, int etat, Date dateCreation, String description,
-			String photo) {
+//	public Media(String nom, int quantite, int etat, Date dateCreation, String description) {
+//		super();
+//		this.nom = nom;
+//		this.quantite = quantite;
+//		this.etat = etat;
+//		this.dateCreation = dateCreation;
+//		this.description = description;
+//		//this.photo = photo;
+//	}
+	
+	public Media(String nom, int quantite, int etat, Date dateCreation, String description) {
 		super();
 		this.nom = nom;
 		this.quantite = quantite;
 		this.etat = etat;
 		this.dateCreation = dateCreation;
 		this.description = description;
-		this.photo = photo;
 	}
 	
 
@@ -62,8 +71,7 @@ public abstract class Media implements Serializable {
 	 * @param description
 	 * @param photo
 	 */
-	public Media(Long codeMedia, String nom, int quantite, int etat, Date dateCreation, String description,
-			String photo) {
+	public Media(Long codeMedia, String nom, int quantite, int etat, Date dateCreation, String description) {
 		super();
 		this.codeMedia = codeMedia;
 		this.nom = nom;
@@ -71,7 +79,7 @@ public abstract class Media implements Serializable {
 		this.etat = etat;
 		this.dateCreation = dateCreation;
 		this.description = description;
-		this.photo = photo;
+		//this.photo = photo;
 	}
 
 	public Long getCodeMedia() {
@@ -122,11 +130,4 @@ public abstract class Media implements Serializable {
 		this.description = description;
 	}
 
-	public String getPhoto() {
-		return photo;
-	}
-
-	public void setPhoto(String photo) {
-		this.photo = photo;
-	}
 }

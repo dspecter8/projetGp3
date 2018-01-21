@@ -24,24 +24,24 @@
 						<div class="form-group">
 							<label for="nom" class="col-sm-2 control-label">Nom :</label>
 							<div class="col-sm-8">
-								<input type="text" th:field="*{nom}" class="form-control"
-									name="nom" id="nom" />  <span th:errors="*{nom}"></span>
+								<input type="text" th:field="${audioad.nom}" class="form-control"
+									 id="nom" />  <span th:errors="${audioad.nom}"></span>
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="etat" class="col-sm-2 control-label">Etat :
 							</label>
 							<div class="col-sm-8">
-								<input type="text" th:field="*{etat}" class="form-control"
-									name="etat" id="etat" /> <span th:errors="*{etat}"></span>
+								<input type="text" th:field="${audioad.etat}" class="form-control"
+									 id="etat" /> <span th:errors="${audioad.etat}"></span>
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="quantite" class="col-sm-2 control-label">Quantité
 								:</label>
 							<div class="col-sm-8">
-								<input type="text" th:field="*{quantite}" class="form-control"
-									name="quantite" id="quantite" /> <span th:errors="*{quantite}"></span>
+								<input type="text" th:field="${audioad.quantite}" class="form-control"
+									 id="quantite" /> <span th:errors="${audioad.quantite}"></span>
 							</div>
 						</div>
 
@@ -49,25 +49,25 @@
 							<label for="datecreation" class="col-sm-2 control-label">Creer le
 								:</label>
 							<div class="col-sm-8">
-								<input type="date" th:field="*{dateCreation}"
-									class="form-control" name="dateCreation" id="dateCreation" />
-								<span th:errors="*{dateCreation}"></span>
+								<input type="date" th:field="${audioad.dateCreation}"
+									class="form-control"  id="dateCreation" />
+								<span th:errors="${audioad.dateCreation}"></span>
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="chateur" class="col-sm-2 control-label">
 								Artiste :</label>
 							<div class="col-sm-8">
-								<input type="text" th:field="*{chateur}" class="form-control"
-									name="chateur" id="chateur" />
+								<input type="text" th:field="${audioad.chateur}" class="form-control"
+									 id="chateur" />
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="anneeDeSortie" class="col-sm-2 control-label">
 								Sortie le :</label>
 							<div class="col-sm-8">
-								<input type="date" th:field="*{anneeDeSortie}"
-									class="form-control" name="anneeDeSortie" id="anneeDeSortie" />
+								<input type="date" th:field="${audioad.anneeDeSortie}"
+									class="form-control"  id="anneeDeSortie" />
 							</div>
 						</div>
 						<!--                                    </form>-->
@@ -77,16 +77,16 @@
 						<label for="nomStudio" class="col-sm-2 control-label">
 							Prod. par :</label>
 						<div class="col-sm-8">
-							<input type="text" th:field="*{nomStudio}" class="form-control"
-								name="nomStudio" id="nomStudio" />
+							<input type="text" th:field="${audioad.nomStudio}" class="form-control"
+								 id="nomStudio" />
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="photo" class="col-sm-2 control-label">Couver.
 							:</label>
 						<div class="col-sm-8">
-							<input type="text" th:field="*{photo}" class="form-control"
-								name="photo" id="photo" /> <span th:errors="*{photo}"></span>
+							<input type="file" name="picture" class="form-control"
+								 id="photo" /> <span th:errors="${audioad.photo}"></span>
 						</div>
 					</div>
 
@@ -94,8 +94,8 @@
 						<label for="adresse" class="col-sm-2 control-label">Descrip.
 							:</label>
 						<div class="col-sm-8">
-							<textarea th:field="*{description}" class="form-control"
-								name="description" id="description" rows="4" cols="50">
+							<textarea th:field="${audioad.description}" class="form-control"
+								 id="description" rows="4" cols="50">
 								</textarea>
 						</div>
 					</div>

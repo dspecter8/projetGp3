@@ -18,6 +18,7 @@ public class Video extends Media{
 	private Date anneeDeSortie;
 	private String nomStudio;
 	
+	private String photo;
 	
 	@ManyToOne
 	@JoinColumn(name="CODE_EMPLOYER")
@@ -35,13 +36,15 @@ public class Video extends Media{
 
 	public Video(String nom, int quantite, int etat, Date dateCreation, String description,
 			String photo, Employer employe, String realisateur, String acteur, Date anneeDeSortie, String nomStudio) {
-		super(nom, quantite, etat, dateCreation, description, photo);
+		super(nom, quantite, etat, dateCreation, description);
 		this.realisateur = realisateur;
 		this.acteur = acteur;
 		this.anneeDeSortie = anneeDeSortie;
 		this.nomStudio = nomStudio;
 		this.employe = employe;
+		this.photo = photo;
 	}
+	
 	
 	
 
@@ -61,12 +64,13 @@ public class Video extends Media{
 	 */
 	public Video(Long codeMedia, String nom, int quantite, int etat, Date dateCreation, String description,
 			String photo, String realisateur, String acteur, Date anneeDeSortie, String nomStudio, Employer employe) {
-		super(codeMedia, nom, quantite, etat, dateCreation, description, photo);
+		super(codeMedia, nom, quantite, etat, dateCreation, description);
 		this.realisateur = realisateur;
 		this.acteur = acteur;
 		this.anneeDeSortie = anneeDeSortie;
 		this.nomStudio = nomStudio;
 		this.employe = employe;
+		this.photo = photo;
 	}
 
 	public String getRealisateur() {
@@ -107,6 +111,14 @@ public class Video extends Media{
 
 	public void setEmploye(Employer employe) {
 		this.employe = employe;
+	}
+	
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
 	}
 //
 //	public Client getClient() {

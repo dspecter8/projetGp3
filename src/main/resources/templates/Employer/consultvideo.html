@@ -10,6 +10,15 @@
 	<div layout:fragment="corpMedia">
 		<div class="container-fluid">
 			<h3>Liste des videos</h3>
+			<div class="spacer">
+				<form th:action="@{consultv}" method="get">
+					<div class="form-group">
+						<label> Recherche par nom :</label> <input type="text"
+							name="motCle" />
+						<button type="submit">Chercher</button>
+					</div>
+				</form>
+			</div>
 			<table class="table table-striped">
 				<tr>
 					<th>Nom</th>
@@ -28,7 +37,8 @@
 					<td th:text="${m.etat}"></td>
 					<td th:text="${m.quantite}"></td>
 					<td th:text="${m.description}"></td>
-					<td th:text="${m.photo}"></td>
+					<td><img th:src="@{getPhoto(id=${m.codeMedia})}" width="100"
+						height="100" /></td>
 					<td><a th:href="@{editVideo(code=${m.codeMedia})}">Modifier</a></td>
 					<td><a
 						onclick="return confirm('Vous êtes sur le point d'effectuer une suppression. Voulez-vous continuer?')"

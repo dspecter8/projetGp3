@@ -3,19 +3,29 @@
  */
 package com.miage.web;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Date;
+
 import javax.validation.Valid;
 
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.miage.dao.AudioRepository;
 import com.miage.dao.ClientRepository;
@@ -27,6 +37,7 @@ import com.miage.entities.Audio;
 import com.miage.entities.Client;
 import com.miage.entities.Employer;
 import com.miage.entities.Livre;
+import com.miage.entities.Media;
 import com.miage.entities.Video;
 
 /**
@@ -47,6 +58,8 @@ public class employerController {
 	@Autowired
 	private AudioRepository au;
 
+	@Value("${dir.images}")
+	private String imageDir;
 	/*
 	 * Traitement sur client
 	 */
@@ -130,8 +143,9 @@ public class employerController {
 
 	@RequestMapping(value = "/adda", method = RequestMethod.GET)
 	public String addAu(Model model) {
-		// Employer ee = this.
-		model.addAttribute("audioad", new Audio());
+		Audio nau = new Audio();
+		nau.setDateCreation(new Date());
+		model.addAttribute("audioad", nau);
 		return "Employer/addAudio";
 	}
 
@@ -144,7 +158,7 @@ public class employerController {
 
 	@RequestMapping("/consulta")
 	public String consulta(Model model, @RequestParam(name = "page", defaultValue = "0") int p,
-			@RequestParam(name = "motClev", defaultValue = "") String mc) {
+			@RequestParam(name = "motCle", defaultValue = "") String mc) {
 		Page<Audio> emp = au.findByName("%" + mc + "%", new PageRequest(p, 8));
 
 		int nbPage = emp.getTotalPages();
@@ -158,14 +172,22 @@ public class employerController {
 		return "Employer/consultaudio";
 	}
 
-	@PostMapping("/savea")
 	@RequestMapping(value = "/savea", method = RequestMethod.POST) // GET
-	public String saveAudio(@ModelAttribute Audio aud, BindingResult b) {
-
+	public String saveAudio(@Valid Audio aud, BindingResult b, @RequestParam(name = "picture") MultipartFile file)
+			throws IllegalStateException, IOException {
 		if (b.hasErrors()) {
 			return "Employer/addAudio";
 		}
+		if (!(file.isEmpty())) {
+			aud.setPhoto(file.getOriginalFilename());
+		}
 		au.save(aud);
+		if (!(file.isEmpty())) {
+
+			aud.setPhoto(file.getOriginalFilename());
+			file.transferTo(new File(imageDir + aud.getCodeMedia()));
+		}
+		// au.save(aud);
 		return "redirect:consulta";
 	}
 
@@ -183,14 +205,20 @@ public class employerController {
 	}
 
 	@RequestMapping(value = "/updatea", method = RequestMethod.POST)
-	public String updatea(@Valid Audio au1, BindingResult b) {
+	public String updatea(@Valid Audio au1, BindingResult b, @RequestParam(name = "picture") MultipartFile file)
+			throws IllegalStateException, IOException {
 		if (b.hasErrors()) {
 			return "Employer/editAudio";
 		}
+		if (!(file.isEmpty())) {
+			au1.setPhoto(file.getOriginalFilename());
+		}
 		au.save(au1);
-		// Audio e1 = au1;
-		// au.delete(au1);
-		// au.saveAndFlush(e1);
+		if (!(file.isEmpty())) {
+
+			au1.setPhoto(file.getOriginalFilename());
+			file.transferTo(new File(imageDir + au1.getCodeMedia()));
+		}
 		return "redirect:consulta";
 	}
 
@@ -212,9 +240,18 @@ public class employerController {
 	}
 
 	@RequestMapping(value = "/savev", method = RequestMethod.POST)
-	public String saveVideo(@Valid Video v1, BindingResult b) {
+	public String saveVideo(@Valid Video v1, BindingResult b, @RequestParam(name = "picture") MultipartFile file)
+			throws IllegalStateException, IOException {
 		if (b.hasErrors()) {
 			return "Employer/addVideo";
+		}
+		if (!(file.isEmpty())) {
+			v1.setPhoto(file.getOriginalFilename());
+		}
+		v.save(v1);
+		if (!(file.isEmpty())) {
+			v1.setPhoto(file.getOriginalFilename());
+			file.transferTo(new File(imageDir + v1.getCodeMedia()));
 		}
 		v.save(v1);
 		return "redirect:consultv";
@@ -239,7 +276,7 @@ public class employerController {
 
 	@RequestMapping("/consultv")
 	public String consultv(Model model, @RequestParam(name = "page", defaultValue = "0") int p,
-			@RequestParam(name = "motClev", defaultValue = "") String mc) {
+			@RequestParam(name = "motCle", defaultValue = "") String mc) {
 		Page<Video> emp = v.findByName("%" + mc + "%", new PageRequest(p, 8));
 
 		int nbPage = emp.getTotalPages();
@@ -257,9 +294,19 @@ public class employerController {
 	 * Traitement livre
 	 */
 	@RequestMapping(value = "/savel", method = RequestMethod.POST)
-	public String saveLivre(@Valid Livre v1, BindingResult b) {
+	public String saveLivre(@Valid Livre v1, BindingResult b, @RequestParam(name = "picture") MultipartFile file)
+			throws IllegalStateException, IOException {
 		if (b.hasErrors()) {
 			return "Employer/addLivre";
+		}
+
+		if (!(file.isEmpty())) {
+			v1.setPhoto(file.getOriginalFilename());
+		}
+		l.save(v1);
+		if (!(file.isEmpty())) {
+			v1.setPhoto(file.getOriginalFilename());
+			file.transferTo(new File(imageDir + v1.getCodeMedia()));
 		}
 		l.save(v1);
 		return "redirect:consultl";
@@ -273,7 +320,7 @@ public class employerController {
 
 	@RequestMapping("/consultl")
 	public String consultl(Model model, @RequestParam(name = "page", defaultValue = "0") int p,
-			@RequestParam(name = "motClev", defaultValue = "") String mc) {
+			@RequestParam(name = "motCle", defaultValue = "") String mc) {
 		Page<Livre> emp = l.findByName("%" + mc + "%", new PageRequest(p, 8));
 
 		int nbPage = emp.getTotalPages();
@@ -320,6 +367,13 @@ public class employerController {
 	@RequestMapping("/parametre")
 	public String parametre() {
 		return "Employer/parametre";
+	}
+
+	@RequestMapping(value = "/getPhoto", produces = MediaType.IMAGE_JPEG_VALUE)
+	@ResponseBody
+	public byte[] getPhoto(Long id) throws Exception {
+		File f = new File(imageDir + id);
+		return IOUtils.toByteArray(new FileInputStream(f));
 	}
 
 }

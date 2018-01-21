@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 //import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.miage.dao.AdministrateurRepository;
 import com.miage.dao.AudioRepository;
 import com.miage.dao.EmployerRepository;
 import com.miage.dao.LivreRepository;
@@ -45,6 +46,10 @@ public class AdminController {
 
 	@Autowired
 	private EmployerRepository e;
+	
+	@Autowired
+	private AdministrateurRepository ar;
+	
 	@Autowired
 	private VideoRepository v;
 	@Autowired
@@ -52,7 +57,7 @@ public class AdminController {
 	@Autowired
 	private AudioRepository au;
 
-	Administrateur a = new Administrateur();
+	Administrateur utilsateurCourant;// = new Administrateur();
 
 	@RequestMapping("/consult")
 	public String consultEmpl(Model model, @RequestParam(name = "page", defaultValue = "0") int p,
@@ -71,6 +76,7 @@ public class AdminController {
 	
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String addEmployer(Model model) {
+		//utilsateurCourant = ar.getOne();
 		model.addAttribute("employerad", new Employer());
 		return "adm/addEmployer";
 	}

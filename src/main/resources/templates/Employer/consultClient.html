@@ -10,6 +10,16 @@
 	<div layout:fragment="corps">
 		<div class="container-fluid">
 			<h3>Consulter clients</h3>
+			<div class="spacer">
+				<form th:action="@{consult}" method="get">
+					<div class="form-group">
+						<label> Recherche par nom :</label> <input type="text"
+							name="motCle" />
+						<button type="submit">Chercher</button>
+					</div>
+				</form>
+			</div>
+
 			<table class="table table-striped">
 				<tr>
 					<th>Nom</th>
