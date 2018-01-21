@@ -23,6 +23,10 @@ dist/
 nbdist/
 .nb-gradle/
 
+<<<<<<< HEAD
+=======
+### Autres
+>>>>>>> d18519ce24d9bdd577ff924accee055f5c510d21
 .txt
 .cmd
 mwnw/
