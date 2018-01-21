@@ -7,42 +7,65 @@
 <!-- <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
 
 <title>KFH Médiathèque</title>
+
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"
+	type="text/css" />
 <!-- Bootstrap Core CSS -->
+<!-- 
 <link th:href="@{/static/bootstrap/css/bootstrap.min.css}"
-	rel="stylesheet" type="text/css" />
+	rel="stylesheet" type="text/css" /> -->
 
 <!-- Custom CSS -->
-<link th:href="@{/static/bootstrap/css/style.css}" rel="stylesheet" />
+<link href="bootstrap/css/style.css" rel="stylesheet" />
+<!-- <link th:href="@{/static/bootstrap/css/style.css}" rel="stylesheet" /> -->
 
 
 <!-- Custom Fonts -->
-<link
-	th:href="@{/static/bootstrap/font-awesome/css/font-awesome.min.css}"
+<link href="bootstrap/font-awesome/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css" />
 
+<!-- <link
+	th:href="@{/static/bootstrap/font-awesome/css/font-awesome.min.css}"
+	rel="stylesheet" type="text/css" /> -->
+
 <!-- Owl Carousel Assets -->
+<link href="bootstrap/owl-carousel/owl.carousel.css" rel="stylesheet" />
+<!-- 
 <link th:href="@{/static/bootstrap/owl-carousel/owl.carousel.css}"
-	rel="stylesheet" />
-<link th:href="@{/static/bootstrap/owl-carousel/owl.theme.css}"
-	rel="stylesheet" />
+	rel="stylesheet" /> -->
 
 
+<link href="bootstrap/owl-carousel/owl.theme.css" rel="stylesheet" />
+
+<!-- <link th:href="@{/static/bootstrap/owl-carousel/owl.theme.css}"
+	rel="stylesheet" /> -->
 
 <!-- jQuery and Modernizr-->
-<script th:src="@{/static/bootstrap/js/jquery-2.1.1.js}"></script>
+<!-- <script th:src="@{/static/bootstrap/js/jquery-2.1.1.js}"></script> -->
+<script src="bootstrap/js/jquery-2.1.1.js"></script>
 
 
-
-<link rel="stylesheet" type="text/css"
+<!-- <link rel="stylesheet" type="text/css"
 	th:href="@{/bootstrap/css/bootstrap.min.css}" />
+ -->
 
 <link rel="stylesheet" type="text/css"
-	th:href="@{/bootstrap/css/myStyle.css}" />
+	href="bootstrap/css/bootstrap.min.css" />
+
+<!-- <link rel="stylesheet" type="text/css"
+	th:href="@{/bootstrap/css/myStyle.css}" /> -->
+<link rel="stylesheet" type="text/css"
+	href="bootstrap/css/myStyle.css" />
 
 <!-- Custom CSS -->
-<link rel="stylesheet" type="text/css"
+<!-- <link rel="stylesheet" type="text/css"
 	th:href="@{/bootstrap/css/style.css}" />
-
+ -->
+ 
+ <link rel="stylesheet" type="text/css"
+	href="bootstrap/css/style.css" />
+ 
 </head>
 <body>
 	<div class="top container-fluid">
@@ -59,7 +82,9 @@
 						<span id="France_z71f" style="font-size: 15px"></span>
 						<script src="//widget.time.is/t.js"></script>
 						<script>
-						time_is_widget.init({France_z71f:{}});
+							time_is_widget.init({
+								France_z71f : {}
+							});
 						</script>
 					</ul>
 				</div>
@@ -113,7 +138,7 @@
 	<!-- wrapper -->
 	<!-- Navigation -->
 
-	<section layout:fragment="content" ></section>
+	<section layout:fragment="content"></section>
 	<footer>
 		<div class="navbar-fixed-bottom">
 			<div class="container-fluid">
@@ -127,7 +152,7 @@
 				<div class="col-md-4">
 					<ul class="list-inline social-buttons">
 						<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-						<li><a href="#"><i class="btn-facebook"></i></a></li>
+						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
 						<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
 					</ul>
 				</div>
@@ -144,27 +169,29 @@
 
 
 	<!-- jQuery -->
-	<script th:src="@{/static/bootstrap/js/jquery-2.1.1.js}"></script>
+	<script src="bootstrap/js/jquery-2.1.1.js"></script>
 
 
 	<!-- Bootstrap Core JavaScript -->
-	<script th:src="@{/static/bootstrap/js/bootstrap.min.js}"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
 
 	<!-- Custom Theme JavaScript -->
-	<script th:src="@{/static/bootstrap/js/agency.js}"></script>
+	<script src="bootstrap/js/agency.js"></script>
 
 	<!-- Animated Top -->
-	<script th:src="@{/static/bootstrap/js/jquery.easing.min.js}"></script>
+	<script src="bootstrap/js/jquery.easing.min.js"></script>
 
-	<script th:src="@{/static/bootstrap/js/classie.js}"></script>
+	<script src="bootstrap/js/classie.js"></script>
 
 	<script th:src="@{/static/bootstrap/js/cbpAnimatedHeader.js}"></script>
 	<script>
 		$(function() {
 			$('#nav-wrapper').height($("#nav").height());
-			
+	
 			$('#nav').affix({
-				offset: { top: $('#nav').offset().top }
+				offset : {
+					top : $('#nav').offset().top
+				}
 			});
 		});
 	</script>
@@ -173,26 +200,26 @@
 	<script src="//static/bootstrap/owl-carousel/owl.carousel.css"
 		th:src="@{/static/bootstrap/owl-carousel/owl.carousel.js}"></script>
 	<script>
-    $(document).ready(function() {
-      $("#owl-brand").owlCarousel({
-        autoPlay: 3000,
-        items : 1,
-		itemsDesktop : [1199,1],
-        itemsDesktopSmall : [979,2],
-		navigation: true,
-      });
-    });
-    </script>
+		$(document).ready(function() {
+			$("#owl-brand").owlCarousel({
+				autoPlay : 3000,
+				items : 1,
+				itemsDesktop : [ 1199, 1 ],
+				itemsDesktopSmall : [ 979, 2 ],
+				navigation : true,
+			});
+		});
+	</script>
 
 	<!-- Google Map -->
 	<script>
-		$('.maps').click(function () {
-		$('.maps iframe').css("pointer-events", "auto");
-	});
-
-	$( ".maps" ).mouseleave(function() {
-	  $('.maps iframe').css("pointer-events", "none"); 
-	});
+		$('.maps').click(function() {
+			$('.maps iframe').css("pointer-events", "auto");
+		});
+	
+		$(".maps").mouseleave(function() {
+			$('.maps iframe').css("pointer-events", "none");
+		});
 	</script>
 </body>
 </html>
