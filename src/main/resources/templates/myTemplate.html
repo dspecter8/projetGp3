@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
+
+<title>KFH Médiathèque</title>
+<!-- Bootstrap Core CSS -->
+<link th:href="@{/static/bootstrap/css/bootstrap.min.css}"
+	rel="stylesheet" type="text/css" />
+
+<!-- Custom CSS -->
+<link th:href="@{/static/bootstrap/css/style.css}" rel="stylesheet" />
+
+
+<!-- Custom Fonts -->
+<link
+	th:href="@{/static/bootstrap/font-awesome/css/font-awesome.min.css}"
+	rel="stylesheet" type="text/css" />
+
+<!-- Owl Carousel Assets -->
+<link th:href="@{/static/bootstrap/owl-carousel/owl.carousel.css}"
+	rel="stylesheet" />
+<link th:href="@{/static/bootstrap/owl-carousel/owl.theme.css}"
+	rel="stylesheet" />
+
+
+
+<!-- jQuery and Modernizr-->
+<script th:src="@{/static/bootstrap/js/jquery-2.1.1.js}"></script>
+
+
+
+<link rel="stylesheet" type="text/css"
+	th:href="@{/bootstrap/css/bootstrap.min.css}" />
+
+<link rel="stylesheet" type="text/css"
+	th:href="@{/bootstrap/css/myStyle.css}" />
+
+<!-- Custom CSS -->
+<link rel="stylesheet" type="text/css"
+	th:href="@{/bootstrap/css/style.css}" />
+
+</head>
+<body>
+	<div class="top container-fluid">
+		<div class="container">
+			<div class="row">
+				<div>
+					<ul class="list-inline social-buttons navbar-left">
+						<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+					</ul>
+					<ul class="navbar-header nav navbar-nav navbar-right">
+						<a href="https://time.is/France">Heure en France :</a>
+						<span id="France_z71f" style="font-size: 15px"></span>
+						<script src="//widget.time.is/t.js"></script>
+						<script>
+						time_is_widget.init({France_z71f:{}});
+						</script>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<header>
+		<marquee direction="left" scrollamount="3" height="30"
+			bgcolor="#DDDDDD">
+			<font face="Verdana" size="2">mon texte... !!!</font>
+		</marquee>
+	</header>
+	<div id="nav-wrapper" layout:fragment="entete">
+		<div id="nav" class="navbar navbar-default navbar-inner">
+			<div class="container-fluid">
+
+				<!-- BAR CONTENTS -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed"
+						data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Notre logo</span> <span class="icon-bar"></span>
+						<span class="icon-bar"></span> <span class="icon-bar"></span>
+					</button>
+					<a href="#page-top" class="navbar-brand navbar-brand-centered"><img
+						th:src="@{/images/logo.png}" alt="First slide" /></a>
+				</div>
+				<div class="collapse navbar-collapse"
+					id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="hidden"><a href="#page-top"></a></li>
+						<li><a class="page-scroll first" th:href="@{/accueil}">Accueil</a></li>
+						<li><a class="page-scroll" th:href="@{/service}">Services</a></li>
+						<li><a class="page-scroll" th:href="@{/evenement}">Evenements</a></li>
+						<li><a class="page-scroll" th:href="@{/galerie}">Galerie</a></li>
+					</ul>
+					<ul class="navbar-header nav navbar-nav navbar-right">
+						<li><a class="page-scroll" th:href="@{/login}">Se
+								connecter</a></li>
+						<li><a class="page-scroll" th:href="@{/admin}">À propos </a></li>
+						<!-- 						<li><a class="page-scroll" href="#connexion"
+							data-toggle="modal" data-target="#connexion">Se Connecter</a></li> -->
+					</ul>
+					<!-- </div> -->
+					<!-- </div> -->
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- nav -->
+	<!-- wrapper -->
+	<!-- Navigation -->
+
+	<section layout:fragment="content" ></section>
+	<footer>
+		<div class="navbar-fixed-bottom">
+			<div class="container-fluid">
+
+				<div class="col-md-4">
+					<div class="copyright">
+						Copyright &copy; Your Website, Designed by <a
+							href="https://www.facebook.com/dspecter">KFH</a>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<ul class="list-inline social-buttons">
+						<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="#"><i class="btn-facebook"></i></a></li>
+						<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+					</ul>
+				</div>
+				<div class="col-md-4">
+					<ul class="list-inline quicklinks">
+						<li><a href="#">Nanani</a></li>
+						<li><a href="#">Nanana</a></li>
+					</ul>
+				</div>
+
+			</div>
+		</div>
+	</footer>
+
+
+	<!-- jQuery -->
+	<script th:src="@{/static/bootstrap/js/jquery-2.1.1.js}"></script>
+
+
+	<!-- Bootstrap Core JavaScript -->
+	<script th:src="@{/static/bootstrap/js/bootstrap.min.js}"></script>
+
+	<!-- Custom Theme JavaScript -->
+	<script th:src="@{/static/bootstrap/js/agency.js}"></script>
+
+	<!-- Animated Top -->
+	<script th:src="@{/static/bootstrap/js/jquery.easing.min.js}"></script>
+
+	<script th:src="@{/static/bootstrap/js/classie.js}"></script>
+
+	<script th:src="@{/static/bootstrap/js/cbpAnimatedHeader.js}"></script>
+	<script>
+		$(function() {
+			$('#nav-wrapper').height($("#nav").height());
+			
+			$('#nav').affix({
+				offset: { top: $('#nav').offset().top }
+			});
+		});
+	</script>
+
+	<!-- carousel -->
+	<script src="//static/bootstrap/owl-carousel/owl.carousel.css"
+		th:src="@{/static/bootstrap/owl-carousel/owl.carousel.js}"></script>
+	<script>
+    $(document).ready(function() {
+      $("#owl-brand").owlCarousel({
+        autoPlay: 3000,
+        items : 1,
+		itemsDesktop : [1199,1],
+        itemsDesktopSmall : [979,2],
+		navigation: true,
+      });
+    });
+    </script>
+
+	<!-- Google Map -->
+	<script>
+		$('.maps').click(function () {
+		$('.maps iframe').css("pointer-events", "auto");
+	});
+
+	$( ".maps" ).mouseleave(function() {
+	  $('.maps iframe').css("pointer-events", "none"); 
+	});
+	</script>
+</body>
+</html>

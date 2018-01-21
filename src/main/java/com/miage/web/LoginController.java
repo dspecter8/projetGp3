@@ -52,7 +52,7 @@ public class LoginController {
 			model.addAttribute("userConnect",a);
 			model.addAttribute("perso1",a);
 			
-			modelstatic.addAttribute("perso", a);
+			//modelstatic.addAttribute("perso", a);
 			return "adm/admin";
 		}
 
@@ -62,12 +62,12 @@ public class LoginController {
 			model.addAttribute("userConnect",e);
 			
 			model.addAttribute("perso1",e);
-			modelstatic.addAttribute("perso", e);
+		//	modelstatic.addAttribute("perso", e);
 			return "Employer/employerTemplate";
 		} else if (p instanceof Client) {
 			Client c = (Client) p;
 			session.setAttribute("loggedInUser", c);
-			modelstatic.addAttribute("perso", c);
+			//modelstatic.addAttribute("perso", c);
 			model.addAttribute("perso1",c);
 			model.addAttribute("userConnect",session.getId());
 			return "client/clientTemplate";
