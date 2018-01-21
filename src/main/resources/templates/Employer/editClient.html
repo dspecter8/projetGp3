@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="Employer/employerTemplate">
+<head>
+<title>Getting Started: Handling Form Submission</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<div layout:fragment="corps">
+		<div class="container-fluid">
+			<h3>Ajouter Client</h3>
+			<form th:action="@{update}" th:object="${employeredi}"
+				class="form-horizontal" enctype="multipart/form-data" method="post"
+				role="form">
+				<div class='row'>
+					<div class="col-lg-12">
+						<div class="titleprghp">
+							<span class="prg">Information contact</span>
+						</div>
+					</div>
+				</div>
+				<div class='row'>
+
+					<div class="col-lg-6">
+						<div class="form-group">
+							<label for="civilite" class="col-sm-2 control-label">Civilité
+								:</label>
+							<div class="col-sm-8">
+								<select class="form-control" th:field="*{civilite}">
+									<option value="Mr">Mr</option>
+									<option value="Mme">Mme</option>
+									<option value="Mlle">Mlle</option>
+								</select>
+
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="nom" class="col-sm-2 control-label">Nom :</label>
+							<div class="col-sm-8">
+								<input type="text" th:field="*{nom}" class="form-control"
+									name="nom" id="nom" /> <span th:errors="*{nom}"></span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="prenom" class="col-sm-2 control-label">Prenom
+								:</label>
+							<div class="col-sm-8">
+								<input type="text" th:field="*{prenom}" class="form-control"
+									name="prenom" id="prenom" /> <span th:errors="*{prenom}"></span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="mail" class="col-sm-2 control-label">Email :</label>
+							<div class="col-sm-8">
+								<input type="email" th:field="*{email}" class="form-control"
+									name="email" id="email" /> <span th:errors="*{email}"></span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="tel" class="col-sm-2 control-label">Téléphone
+								:</label>
+							<div class="col-sm-8">
+								<input type="text" th:field="*{telephone}" class="form-control"
+									name="tel" id="tel" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="salaire" class="col-sm-2 control-label">Salaire
+								:</label>
+							<div class="col-sm-8">
+								<input type="date" th:field="*{debutAbonnement}" class="form-control"
+									name="debutAbonnement" id="debutAbonnement" /> <span th:errors="*{debutAbonnement}"></span>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-6">
+						<div class="form-group">
+							<label for="motDePasse" class="col-sm-2 control-label">Mot
+								de passe :</label>
+							<div class="col-sm-8">
+								<input type="password" th:field="*{motDePasse}"
+									class="form-control" name="motDePasse" id="motDePasse" />
+							</div>
+						</div>
+						<div class="form-group">
+
+							<label for="adresse" class="col-sm-2 control-label">Adresse</label>
+							<div class="col-sm-8">
+								<textarea th:field="*{adress}" class="form-control"
+									name="adress" id="adress" rows="4" cols="50">
+								</textarea>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="col-lg-12"></div>
+					</div>
+					<div class="col-lg-6">
+						<div class="col-lg-12"></div>
+
+					</div>
+					<div class="col-lg-12 col-xs-12"></div>
+					<div class="col-lg-12 col-xs-12"></div>
+				</div>
+
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="boutton">
+							<div class="col-lg-7 col-md-7 hidden-md hidden-xs"></div>
+							<div class="col-lg-1 col-md-1 col-xs-12">
+								<button name="submit" id="cancel" type="reset" value="reset"
+									class="btn btn-default">
+									Cancel<span class="glyphicon glyphicon-remove"></span>
+								</button>
+							</div>
+							<div
+								class="col-lg-3 col-lg-offset-1 col-md-3 col-md-offset-1 col-xs-12">
+								<button name="submit" id="submit" type="submit" value="submit"
+									class="btn btn-default">
+									<span class="glyphicon glyphicon-floppy-disk"></span>Enregistrer<span
+										class="glyphicon glyphicon-chevron-right"></span>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

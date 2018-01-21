@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="adm/admin">
+<head>
+<title>Getting Started: Handling Form Submission</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<div layout:fragment="corps">
+		<div class="container-fluid">
+			<h3>Consulter Employés</h3>
+			<table class="table table-striped">
+				<tr>
+					<th>Nom</th>
+					<th>Date ajout</th>
+					<th>ID Employer</th>
+					<th>Etat</th>
+					<th>Quantité disponible</th>
+					<th>Description</th>
+					<th>Couverture</th>
+				</tr>
+
+				<tr th:each="m:${medial}">
+					<td th:text="${m.nom}"></td>
+					<td th:text="${m.dateCreation}"></td>
+					<td th:text="${m.employe}"></td>
+					<td th:text="${m.etat}"></td>
+					<td th:text="${m.quantite}"></td>
+					<td th:text="${m.description}"></td>
+					<td th:text="${m.photo}"></td>
+				</tr>
+			</table>
+			<div class="container">
+				<ul class="nav nav-pills">
+					<li><a>{{i}}</a></li>
+				</ul>
+			</div>
+
+		</div>
+	</div>
+</body>
+</html>

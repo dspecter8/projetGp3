@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="myTemplate">
+<head>
+<title>Getting Started: Handling Form Submission</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style>
+/* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+.row.content {
+	height: 100%
+}
+
+/* Set gray background color and 100% height */
+.sidenav {
+	background-color: #f1f1f1;
+	height: 100%;
+}
+
+.sidsection {
+	background-color: #f1f1f1;
+	height: auto;
+}
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+	.sidenav {
+		height: auto;
+		padding: 15px;
+	}
+	.row.content {
+		height: auto;
+	}
+}
+</style>
+
+<script type="text/javascript"> 
+<!-- This script and many more are available free online at --> 
+<!-- The JavaScript Source!! http://javascript.internet.com --> 
+ 
+<!-- Begin 
+function maxDays(mm, yyyy){ 
+var mDay; 
+ if((mm == 3) || (mm == 5) || (mm == 8) || (mm == 10)){ 
+ 	mDay = 30; 
+   } 
+   else{ 
+   	mDay = 31 
+   	if(mm == 1){ 
+     	if (yyyy/4 - parseInt(yyyy/4) != 0){ 
+       mDay = 28 
+     	} 
+     	else{ 
+       mDay = 29 
+     } 
+ 	} 
+  } 
+return mDay; 
+} 
+function changeBg(id){ 
+ if (eval(id).style.backgroundColor != "yellow" ){ 
+ 	eval(id).style.backgroundColor = "yellow" 
+ } 
+ else{ 
+ 	eval(id).style.backgroundColor = "#ffffff" 
+ } 
+} 
+function writeCalendar(){ 
+var now = new Date 
+var dd = now.getDate() 
+var mm = now.getMonth() 
+var dow = now.getDay() 
+var yyyy = now.getFullYear() 
+var arrM = new Array("Janvier","Fevrier","Mars","Avril","Mai","Juin","Jeuillet","Aout","Septembre","Octobre","Novembre","Decembre" ) 
+var arrY = new Array() 
+ for (ii=0;ii<=4;ii++){ 
+ 	arrY[ii] = yyyy - 2 + ii 
+ } 
+var arrD = new Array("Dim","Lun","Mar","Mer","Jeu","Ven","Sam" ) 
+ 
+var text = "" 
+text = "<form name=calForm>" 
+text += "<table border=1>" 
+text += "<tr><td>" 
+text += "<table width=100%><tr>" 
+text += "<td align=left>" 
+text += "<select name=selMonth onChange='changeCal()'>" 
+ for (ii=0;ii<=11;ii++){ 
+ 	if (ii==mm){ 
+   text += "<option value= " + ii + " Selected>" + arrM[ii] + "</option>" 
+ 	} 
+ 	else{ 
+   text += "<option value= " + ii + ">" + arrM[ii] + "</option>" 
+ 	} 
+ } 
+text += "</select>" 
+text += "</td>" 
+text += "<td align=right>" 
+text += "<select name=selYear onChange='changeCal()'>" 
+ for (ii=0;ii<=4;ii++){ 
+ 	if (ii==2){ 
+   text += "<option value= " + arrY[ii] + " Selected>" + arrY[ii] + "</option>" 
+ 	} 
+ 	else{ 
+   text += "<option value= " + arrY[ii] + ">" + arrY[ii] + "</option>" 
+ 	} 
+ } 
+text += "</select>" 
+text += "</td>" 
+text += "</tr></table>" 
+text += "</td></tr>" 
+text += "<tr><td>" 
+text += "<table border=1>" 
+text += "<tr>" 
+ for (ii=0;ii<=6;ii++){ 
+ 	text += "<td align=center><span class=label>" + arrD[ii] + "</span></td>" 
+ } 
+text += "</tr>" 
+aa = 0 
+ for (kk=0;kk<=5;kk++){ 
+ 	text += "<tr>" 
+ 	for (ii=0;ii<=6;ii++){ 
+   text += "<td align=center><span id=sp" + aa + " onClick='changeBg(this.id)'>1</span></td>" 
+   aa += 1 
+ 	} 
+ 	text += "</tr>" 
+ } 
+text += "</table>" 
+text += "</td></tr>" 
+text += "</table>" 
+text += "</form>" 
+document.write(text) 
+changeCal() 
+} 
+function changeCal(){ 
+var now = new Date 
+var dd = now.getDate() 
+var mm = now.getMonth() 
+var dow = now.getDay() 
+var yyyy = now.getFullYear() 
+var currM = parseInt(document.calForm.selMonth.value) 
+var prevM 
+ if (currM!=0){ 
+ 	prevM = currM - 1 
+ } 
+ else{ 
+ 	prevM = 11 
+ } 
+var currY = parseInt(document.calForm.selYear.value) 
+var mmyyyy = new Date() 
+mmyyyy.setFullYear(currY) 
+mmyyyy.setMonth(currM) 
+mmyyyy.setDate(1) 
+var day1 = mmyyyy.getDay() 
+ if (day1 == 0){ 
+ 	day1 = 7 
+ } 
+var arrN = new Array(41) 
+var aa 
+ for (ii=0;ii<day1;ii++){ 
+ 	arrN[ii] = maxDays((prevM),currY) - day1 + ii + 1 
+ } 
+ aa = 1 
+ for (ii=day1;ii<=day1+maxDays(currM,currY)-1;ii++){ 
+ 	arrN[ii] = aa 
+ 	aa += 1 
+ } 
+ aa = 1 
+ for (ii=day1+maxDays(currM,currY);ii<=41;ii++){ 
+ 	arrN[ii] = aa 
+ 	aa += 1 
+ } 
+ for (ii=0;ii<=41;ii++){ 
+ 	eval("sp"+ii).style.backgroundColor = "#FFFFFF" 
+ } 
+var dCount = 0 
+ for (ii=0;ii<=41;ii++){ 
+ 	if (((ii<7)&&(arrN[ii]>20))||((ii>27)&&(arrN[ii]<20))){ 
+   eval("sp"+ii).innerHTML = arrN[ii] 
+   eval("sp"+ii).className = "c3" 
+ 	} 
+ 	else{ 
+   eval("sp"+ii).innerHTML = arrN[ii] 
+   if ((dCount==0)||(dCount==6)){ 
+   	eval("sp"+ii).className = "c2" 
+   } 
+   else{ 
+   	eval("sp"+ii).className = "c1" 
+   } 
+   if ((arrN[ii]==dd)&&(mm==currM)&&(yyyy==currY)){ 
+   	eval("sp"+ii).style.backgroundColor="#90EE90" 
+   } 
+ 	} 
+ dCount += 1 
+ 	if (dCount>6){ 
+   dCount=0 
+ 	} 
+ } 
+} 
+//  End --> 
+</script>
+
+</head>
+<body class="bgbody">
+	<div layout:fragment="entete">
+		<div id="nav" class="navbar navbar-default navbar-inner">
+			<div class="container-fluid">
+
+				<!-- BAR CONTENTS -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed"
+						data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Notre logo</span> <span class="icon-bar"></span>
+						<span class="icon-bar"></span> <span class="icon-bar"></span>
+					</button>
+					<a href="#page-top" class="navbar-brand navbar-brand-centered"><img
+						src="../../static/images/logo.png" alt="First slide" /></a>
+				</div>
+				<div class="collapse navbar-collapse"
+					id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="hidden"><a href="#page-top"></a></li>
+						<li><a class="page-scroll first" th:href="@{/add}">Ajouter
+								un employé</a></li>
+						<li><a class="page-scroll" th:href="@{/consult}">Liste
+								des employés</a></li>
+						<li><a class="page-scroll" th:href="@{/lstMedia}">Liste
+								des médias</a></li>
+						<li><a class="page-scroll" th:href="@{/parametre}">Parametre
+								compte</a></li>
+
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a class="page-scroll" th:href="@{/logout}"> Se
+								déconnecter</a></li>
+						<!-- 						<li><a class="page-scroll" th:href="@{/admin}">À propos </a></li> -->
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div layout:fragment="content">
+		<div class="container-fluid spacer">
+
+			<div class="col-sm-3 border">
+				<div class="panel panel-primary">
+					<div class="panel-heading">KFH Media</div>
+					<div class="panel-body">
+						<ul class="nav nav-pills nav-stacked">
+							<li class="active"><a href="#section1">Menu</a></li>
+							<li><a class="page-scroll first" th:href="@{/add}">Ajouter
+									un employé</a></li>
+							<li><a class="page-scroll first" th:href="@{/consult}">Consulter
+									la liste des employés</a></li>
+							<li><a class="page-scroll first" th:href="@{/parametre}">Parametre
+									compte</a></li>
+						</ul>
+					</div>
+					<div align="center" class="panel-body border-primary">
+						<script type="text/javascript">writeCalendar()</script>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-9 border border-primary">
+				<div class="panel panel-primary">
+					<div class="panel-heading">Page d'administration</div>
+					<div class="panel-body">
+						<section layout:fragment="corps">
+							<p th:text="'Hello, ' + ${idSession}+ '!'" />
+						</section>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

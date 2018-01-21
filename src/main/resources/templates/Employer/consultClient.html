@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="Employer/employerTemplate">
+<head>
+<title>Getting Started: Handling Form Submission</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<div layout:fragment="corps">
+		<div class="container-fluid">
+			<h3>Consulter clients</h3>
+			<table class="table table-striped">
+				<tr>
+					<th>Nom</th>
+					<th>Prenom</th>
+					<th>Email</th>
+					<th>Etat</th>
+					<th>Debut abonnement</th>
+					<th>Modifier</th>
+					<th>Supprimer</th>
+				</tr>
+
+				<tr th:each="e:${PageEmployer.content}">
+					<td th:text="${e.nom}"></td>
+					<td th:text="${e.prenom}"></td>
+					<td th:text="${e.email}"></td>
+					<td th:text="${e.etatAbonnement}"></td>
+					<td th:text="${e.debutAbonnement}"></td>
+					<td><a th:href="@{edit(code=${e.code})}">Modifier</a></td>
+					<td><a
+						onclick="return confirm('Vous êtes sur le point de supprimer un employé. Voulez-vous continuer?')"
+						th:href="@{supprimer(code=${e.code})}">Supprimer</a></td>
+				</tr>
+			</table>
+			<div class="container">
+				<ul class="nav nav-pills">
+					<li th:each="p:${pages}" th:class="${p==pageCourant}?active:''"><a
+						th:text="${p}" th:href="@{consult(page=${p})}"></a></li>
+				</ul>
+			</div>
+
+		</div>
+	</div>
+</body>
+</html>

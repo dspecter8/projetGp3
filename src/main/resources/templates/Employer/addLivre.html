@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="Employer/addMedia">
+<head>
+<title>Getting Started: Handling Form Submission</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<div layout:fragment="corpMedia">
+		<div class="container-fluid">
+			<h1>Création d'un Livre</h1>
+			<form th:action="@{savel}" th:object="${livread}"
+				class="form-horizontal" enctype="multipart/form-data" method="post"
+				role="form">
+				<div class='row'>
+					<div class="col-lg-12">
+						<div class="titleprghp"></div>
+					</div>
+				</div>
+				<div class='row'>
+
+					<div class="col-lg-6">
+						<div class="form-group">
+							<label for="nom" class="col-sm-2 control-label">Nom :</label>
+							<div class="col-sm-8">
+								<input type="text" th:field="*{nom}" class="form-control"
+									name="nom" id="nom" /> <span th:errors="*{nom}"></span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="prenom" class="col-sm-2 control-label">Etat :
+							</label>
+							<div class="col-sm-8">
+								<input type="text" th:field="*{etat}" class="form-control"
+									name="etat" id="etat" /> <span th:errors="*{etat}"></span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="quantite" class="col-sm-2 control-label">Quantité
+								:</label>
+							<div class="col-sm-8">
+								<input type="text" th:field="*{quantite}" class="form-control"
+									name="quantite" id="quantite" /> <span th:errors="*{quantite}"></span>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="Date" class="col-sm-2 control-label">Creer le
+								:</label>
+							<div class="col-sm-8">
+								<input type="date" th:field="*{dateCreation}"
+									class="form-control" name="dateCreation" id="dateCreation" />
+								<span th:errors="*{dateCreation}"></span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="auteur" class="col-sm-2 control-label">
+								Auteur :</label>
+							<div class="col-sm-8">
+								<input type="text" th:field="*{auteur}" class="form-control"
+									name="auteur" id="auteur" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="nombrePage" class="col-sm-2 control-label">
+								Nb pages :</label>
+							<div class="col-sm-8">
+								<input type="text" th:field="*{nombrePage}" class="form-control"
+									name="nombrePage" id="nombrePage" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="anneeDeSortie" class="col-sm-2 control-label">
+								Sortie le :</label>
+							<div class="col-sm-8">
+								<input type="date" th:field="*{anneeDeSortie}"
+									class="form-control" name="anneeDeSortie" id="anneeDeSortie" />
+							</div>
+						</div>
+						<!--                                    </form>-->
+					</div>
+					<div class="col-lg-6">
+						<div class="form-group">
+							<label for="nomStudio" class="col-sm-2 control-label">
+								Edition :</label>
+							<div class="col-sm-8">
+								<input type="text" th:field="*{nomEdition}" class="form-control"
+									name="nomEdition" id="nomEdition" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="photo" class="col-sm-2 control-label">Couver.
+								:</label>
+							<div class="col-sm-8">
+								<input type="text" th:field="*{photo}" class="form-control"
+									name="photo" id="photo" /> <span th:errors="*{photo}"></span>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="adresse" class="col-sm-2 control-label">Descrip.
+								:</label>
+							<div class="col-sm-8">
+								<textarea th:field="*{description}" class="form-control"
+									name="description" id="description" rows="4" cols="50">
+								</textarea>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-6">
+							<div class="col-lg-12"></div>
+						</div>
+						<div class="col-lg-6">
+							<div class="col-lg-12"></div>
+
+						</div>
+						<div class="col-lg-12 col-xs-12"></div>
+						<div class="col-lg-12 col-xs-12"></div>
+					</div>
+
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="boutton">
+								<div class="col-lg-7 col-md-7 hidden-md hidden-xs"></div>
+								<div class="col-lg-1 col-md-1 col-xs-12">
+									<button name="submit" id="cancel" type="reset" value="reset"
+										class="btn btn-default">
+										Cancel<span class="glyphicon glyphicon-remove"></span>
+									</button>
+								</div>
+								<div
+									class="col-lg-3 col-lg-offset-1 col-md-3 col-md-offset-1 col-xs-12">
+									<button name="submit" id="submit" type="submit" value="submit"
+										class="btn btn-default">
+										<span class="glyphicon glyphicon-floppy-disk"></span>Enregistrer<span
+											class="glyphicon glyphicon-chevron-right"></span>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

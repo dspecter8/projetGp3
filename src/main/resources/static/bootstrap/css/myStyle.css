@@ -1,0 +1,146 @@
+body {
+	background-color: lightblue;
+}
+
+#playground-container {
+	height: 500px;
+	overflow: hidden !important;
+	-webkit-overflow-scrolling: touch;
+}
+
+body {
+	height: 100%;
+	background-repeat: no-repeat;
+	background-color: #d3d3d3;
+	font-family: 'Oxygen', sans-serif;
+	text-align: justify;
+}
+
+#foo {
+	float: left;
+	margin-top: 1%;
+	/*   padding: 2% 0; */
+	/*   color: #777; */
+	font-weight: bold;
+	text-align: justify;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+body.form {
+	background: #00589F;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00589F',
+		endColorstr='#0073CF', GradientType=0);
+	background: -webkit-linear-gradient(to bottom, #00589F 50%, #0073CF)
+		!important;
+	background: -moz-linear-gradient(to bottom, #00589F 50%, #0073CF)
+		!important;
+	background: -ms-linear-gradient(to bottom, #00589F 50%, #0073CF)
+		!important;
+	background: -o-linear-gradient(to bottom, #00589F 50%, #0073CF)
+		!important;
+	background: linear-gradient(to bottom, #00589F 50%, #0073CF) !important;
+	color: white;
+}
+
+div.well {
+	height: 250px;
+}
+
+.Absolute-Center {
+	margin: auto;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+
+.Absolute-Center.is-Responsive {
+	width: 50%;
+	height: 50%;
+	min-width: 200px;
+	max-width: 400px;
+	padding: 40px;
+}
+
+#logo-container {
+	margin: auto;
+	margin-bottom: 10px;
+	width: 200px;
+	height: 30px;
+	background-image:
+		url('http://placehold.it/200x30/000000/ffffff/&text= K- H - F ');
+}
+
+.div-cid {
+	height: 200px;
+	width: 300px;
+	margin: 40px auto;
+	overflow: hidden;
+	position: relative;
+}
+
+.div-cid:before {
+	content: '';
+	position: absolute;
+	left: -58px; /*-half buffer -left border*/
+	height: 188px;
+	width: 400px;
+	background: rgba(30, 30, 30, 0.8);
+	-webkit-transform: skewX(45deg);
+	-moz-transform: skewX(45deg);
+	transform: skewX(45deg);
+	border-left: 8px solid #222;
+	border-right: 8px solid #222;
+	border-top: 6px solid #222;
+	border-bottom: 6px solid #222;
+}
+
+.div-cid:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 157px;
+	width: 6px;
+	background: #222;
+	box-shadow: 0 0 0 0 #222, 294px 43px 0 0 #222;
+}
+
+.checkbox {
+	width: 50px
+}
+
+.inline {
+	display: inline-block;
+}
+
+label {
+	min-width: 120px;
+}
+
+p {
+	width: 100!m;
+	max-height: 440px;
+}
+
+/* .titleprghp { */
+/* 	background: #555; */
+/* 	height: 46px; */
+/* 	color: #000; */
+/* 	font-size: 23px; */
+/* 	height: 46px; */
+/* 	line-height: 40px; */
+/* 	padding: 0 0 0 20px; */
+/* 	margin: 20px 0 20px; */
+/* /* } */
+*
+/
+/* div { */
+/*   height: 100%; */
+/* } */
+
+/* .spacer { */
+/* 	margin: 10px; */
+/* } 

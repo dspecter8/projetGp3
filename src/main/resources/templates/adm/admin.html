@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="myTemplate">
+<head>
+<title>Getting Started: Handling Form Submission</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style>
+/* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+.row.content {
+	height: 100%
+}
+
+/* Set gray background color and 100% height */
+.sidenav {
+	background-color: #f1f1f1;
+	height: 100%;
+}
+
+.sidsection {
+	background-color: #f1f1f1;
+	height: auto;
+}
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+	.sidenav {
+		height: auto;
+		padding: 15px;
+	}
+	.row.content {
+		height: auto;
+	}
+}
+
+.bgbody {
+	background-image: url(../../images/background.jpeg);
+	-webkit-background-size: cover; /* pour anciens Chrome et Safari */
+	background-size: cover; /* version standardisée */
+}
+
+@font-face { /* Définition d'une nouvelle police nommée CAC Champagne */
+	font-family: 'cac_champagneregular';
+	src: url('cac_champagne-webfont.eot');
+	src: url('cac_champagne-webfont.eot?#iefix') format('embedded-opentype'),
+		url('cac_champagne-webfont.woff') format('woff'),
+		url('cac_champagne-webfont.ttf') format('truetype'),
+		url('cac_champagne-webfont.svg#cac_champagneregular') format('svg');
+}
+
+.logo
+	/* Utilisation de la police qu'on vient de définir sur les titres */ {
+	font-family: 'cac_champagneregular', Arial, serif;
+}
+
+#id_div_im {
+	/* 	display:block; */
+	float: left;
+	/* 	border-style: solid; */
+	border-color: grey;
+	width: 100%;
+	height: 560px;
+}
+
+#id_div_i {
+	/* 	display:block; */
+	float: left;
+	/* 	border-style: solid; */
+	border-color: grey; /*
+	width: 100%;
+	height: 100%;
+}
+
+#img_im {
+	width: 100%;
+	height: 100%;
+}
+#divi {
+  max-height:40px;
+  max-width: 100%
+}
+</style>
+
+</head>
+<body class="bgbody">
+	<div layout:fragment="entete">
+		<div id="nav" class="navbar navbar-default navbar-inner">
+			<div class="container-fluid">
+				<!-- BAR CONTENTS -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed"
+						data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Notre logo</span> <span class="icon-bar"></span>
+						<span class="icon-bar"></span> <span class="icon-bar"></span>
+					</button>
+					<a href="#page-top" class="navbar-brand navbar-brand-centered">
+						<span class="logo">KFH-Média </span>
+					</a>
+				</div>
+				<div class="collapse navbar-collapse"
+					id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="hidden"><a href="#page-top"></a></li>
+						<li><a class="page-scroll first"
+							th:href="@{/admin/accueil}">Accueil</a></li>
+						<li><a class="page-scroll " th:href="@{/admin/add}">Ajouter
+								un employé</a></li>
+						<li><a class="page-scroll" th:href="@{/admin/consult}">Liste
+								des employés</a></li>
+						<li><a class="page-scroll" th:href="@{/admin/consultl}">Liste
+								des médias</a></li>
+						<li><a class="page-scroll" th:href="@{/admin/parametre}">Parametre
+								compte</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a class="page-scroll" th:href="@{/logout}"> Se
+								déconnecter</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div layout:fragment="content">
+		<div class="container-fluid spacer">
+
+			<div class="col-sm-3 border">
+				<div class="panel panel-primary">
+					<div class="panel-heading">KFH Media</div>
+					<br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
+					<br /> <br /> <br /> <br />
+					<!-- 					<div class="panel-body"> -->
+					<!-- 						<ul class="nav nav-pills nav-stacked"> -->
+					<!-- 							<li class="active"><a href="#">Information -->
+					<!-- 									administrateur</a></li> -->
+					<!-- 							<li th:text="${userConnect.code}"></li> -->
+					<!-- 							<li th:text="'Genre : '+${userConnect.civilite}"></li> -->
+					<!-- 							<li th:text="'Nom : '+${userConnect.nom}"></li> -->
+					<!-- 							<li th:text="'Prenom : '+${userConnect.prenom}"></li> -->
+					<!-- 							<li th:text="'Tel : '+${userConnect.telephone}"></li> -->
+					<!-- 							<li th:text="'E-mail : '+${userConnect.email}"></li> -->
+					<!-- 							<li th:text="'Adresse : '+${userConnect.adress}"></li> -->
+					<!-- 							<br /> -->
+					<!-- 							<br /> -->
+					<!-- 						</ul> -->
+					<!-- 					</div> -->
+					<div style="color: red" align="center"
+						class="panel-body border-primary">
+						<ul class="nav nav-pills nav-stacked">
+							<li class="active"><a href="#section1">Calendrier</a></li>
+							<li><script
+									src="http://informatiquegifs.free.fr/calendrier/2/fichier.js"
+									type="text/javascript"></script></li>
+
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-9 border border-primary" >
+				<div class="panel panel-primary">
+					<div class="panel-heading">Page d'administration</div>
+					<div class="panel-body" id="divi">
+						<section layout:fragment="corps">
+									<div class="container-fluid">
+			<div class="col-sm-3 border border-primary" >
+				<div class="panel panel-primary" >
+					<div class="panel-heading">Actualités</div>
+					<div class="panel-body"></div>
+				</div>
+			</div>
+			<div class="col-sm-3 border border-primary">
+				<div class="panel panel-primary">
+					<div class="panel-heading">Evenéments</div>
+					<div class="panel-body">
+					<marquee bgcolor="red">Zone de défilement orange</marquee>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6 border border-primary" id="id_div_im">
+				<div class="panel-body" >
+					<img id="img_im" th:src="@{../images/1.jpg}" alt="First slide" />
+				</div>
+
+			</div>
+
+		</div>
+						</section>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

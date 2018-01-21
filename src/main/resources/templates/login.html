@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="myTemplate">
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="User account registration" />
+<link rel="icon" th:href="@{/favicon.ico}" />
+
+
+
+<title>Getting Started: Handling Form Submission</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="container-fluid">
+			<div class="inner-bg">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-5 ">
+							<div class="form-box">
+								<div class="form-top">
+									<div class="form-top-left">
+										<h3>Login to our site</h3>
+										<p>Enter username and password to log on:</p>
+									</div>
+									<div class="form-top-right">
+										<i class="fa fa-lock"></i>
+									</div>
+								</div>
+								<div class="form-bottom">
+									<form class="login-form" role="form" th:action="@{/login}"
+										id="loginForm" method="post">
+										<div class="form-group input-group">
+											<span class="input-group-addon"><i
+												class="glyphicon glyphicon-user"></i></span> <input
+												class="form-control" type="text" name='email'
+												placeholder="email" />
+										</div>
+										<div class="form-group input-group">
+											<span class="input-group-addon"><i
+												class="glyphicon glyphicon-lock"></i></span> <input
+												class="form-control" type="password" name='mdp'
+												placeholder="Mot de passe" />
+										</div>
+										<div class="form-group">
+											<input type="submit" value="Connecter" id="btnConnect"
+												class="btn btn-def btn-block" />
+										</div>
+										<div class="form-group text-center">
+											<a href="#">Mot de passe oublier</a>
+										</div>
+									</form>
+									<center>
+										<p th:text="'' + ${loginError}+ '!'" />
+									</center>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-1 middle-border"></div>
+
+						<div class="col-sm-5">
+							<a class="page-scroll" th:href="@{/addClient}">Créer gratuitement un compte</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="myTemplate">
+<head>
+<title>Getting Started: Handling Form Submission</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="container-fluid">
+			<br /> <br />
+			<h2 align="center">Pourquoi une médiathèque en ligne?</h2>
+			<div id="foo" class="col-md-3">
+				<div class="box-item">
+					<center>
+						<img class="classimg" alt="img1"
+							th:src="@{/images/informatique.jpg}" />
+					</center>
+					<h3>Informatique</h3>
+					<p id="sectionaccueil">Ce n'est que récemment que l'on a commencé à mesurer à quel
+						point l'informatique est en passe de transformer notre société, et
+						même de la bouleverser de fond en comble. C'est à décrire et à
+						analyser les fondements de l'hyperpuissance de l'informatique que
+						Gérard Berry se consacre dans ce livre qui fera date. Il montre en
+						effet de façon non technique comment la science et la technologie
+						informatiques mettent l'information au coeur de l'action, qu'elle
+						soit produite par les hommes ou par les machines. Algorithmes,
+						données, machines et réseaux conduisent surtout à un nouveau
+						schéma mental bien différent de celui des siècles précédents, qui
+						confère un pouvoir étonnant à ceux qui le comprennent et
+						l'organisent. Pour donner concrètement à comprendre le mode de
+						pensée inhérent à l'informatique, Gérard Berry passe en revue cinq
+						domaines de transformations massives : les télécommunications,
+						Internet, la photographie et la cartographie, l'informatisation de
+						la médecine, et celle en cours de toutes les sciences. Il analyse
+						ensuite en détail deux dangers de l'informatique, les bugs et les
+						trous de sécurité, qui peuvent parfois transformer des systèmes
+						informatisés en dangers publics, et montre comment la science
+						moderne permet de mieux contrôler ces dangers. Enfin, l'auteur
+						donne sa vision de l'évolution de l'informatique, bien loin des
+						fantasmes trop souvent partagés. Pour la première fois, un livre
+						qui explique tout de l'informatique, de son monde, ses fondements,
+						ses applications, et la révolution qu'elle représente.</p>
+				</div>
+			</div>
+			<div id="foo" class="col-md-3">
+				<div class="box-item">
+					<center>
+						<img class="classimg" alt="img1" th:src="@{/images/servers.png}" />
+					</center>
+					<h3>Base de données</h3>
+					<p>Ce manuel vise un triple objectif : comprendre les concepts
+						théoriques, apprendre à utiliser des bases de données, et enfin
+						savoir en construire de nouvelles. La première partie explique les
+						notions de base sur les structures de données, les systèmes de
+						gestion de bases de données, le modèle relationnel... La deuxième
+						décrit le langage SQL et les fonctions qui permettent de tirer le
+						meilleur parti d'une base de données. La dernière partie détaille
+						les méthodes de construction des bases de données relationnelles
+						puis des bases relationnelles-objet. L'ouvrage papier est complété
+						par un site web comprenant des tutoriels, des exercices corrigés,
+						des planches PowerPoint destinées aux enseignants. Cette 3e
+						édition comporte des mises à jour sur les technologies du Big Data
+						(NoSQL) et sur l'utilisation de SQLfast un outil d'apprentissage
+						du langage SQL</p>
+				</div>
+			</div>
+			<div id="foo" class="col-md-3">
+				<div class="box-item">
+					<center>
+						<img class="classimg" alt="img1" th:src="@{/images/14.jpg}" />
+					</center>
+					<h3>Littérature</h3>
+					<p>Après une liaison passionnée qui s’est achevée dans les
+						larmes et les reproches, Christian Grey est incapable d’oublier
+						Anastasia Steele. Il l’a dans la peau. Décidé à regagner son
+						amour, il s’efforce de réprimer ses désirs les plus troubles et
+						son besoin de tout contrôler pour enfin aimer Ana selon ses
+						conditions. Hélas, son enfance continue de le hanter, d’autant que
+						Christian comprend que Jack Hyde, le patron sournois d’Ana, la
+						veut clairement pour lui seul. Le Dr Flynn, confident et
+						thérapeute de Christian, parviendra-t-il à l’aider à affronter ses
+						démons ? Ou est-ce que l’amour exclusif d’Elena et l’adoration
+						insensée de son ex-soumise, Leila, finiront par le retenir dans le
+						passé ? Et si, malgré ses tourments et ses obsessions, Christian
+						réussit à reconquérir Ana, sera-t-il capable de la garder ?</p>
+				</div>
+			</div>
+			<div id="foo" class="col-md-3">
+				<div class="box-item">
+					<center>
+						<img class="classimg" alt="img1"
+							th:src="@{/images/programmation.jpg}" />
+					</center>
+					<h3>Programmation</h3>
+					<p>Avec Programmer pour les Nuls, il n’est pas question de
+						faire de vous un programmeur professionnel en quelques jours mais
+						de vous mettre le pied à l’étrier afin de vous apprendre à
+						développer des programmes dans un langage structuré. En quelques
+						heures vous deviendrez familier avec la structure des données, les
+						opérateurs, les instructions conditionnelles, la gestion des
+						tableaux, etc. Vous apprendrez également les bases des langages
+						HTML et JavaScript, les langages de développement de base
+						d’Internet. Cette nouvelle édition enrichie est à jour sur les
+						derniers développements des langages. Wallace Wang est l'auteur de
+						plus d'une vingtaine de livres sur l'univers informatique, comme
+						Apprendre à programmer pour les Nuls, ou Office 2013 pour les
+						Nuls. Olivier Engler a adapté et écrit plus de 100 titres
+						consacrés à l’informatique et produit les versions françaises de
+						plusieurs compilateurs C et C++. Il a conçu les systèmes
+						documentaires pour de grandes entreprises et formé des centaines
+						de professionnels de l’éducation aux nouveaux outils
+						informatiques.</p>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</body>
+</html>
