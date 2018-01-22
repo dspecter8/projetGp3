@@ -26,13 +26,13 @@ public abstract class Operation implements Serializable {
 	private Long numero;
 	private Date dateOperation;
 	
-//	@ManyToOne
-//	@JoinColumn(name="CODE_MEDIA")
-//	private Media media;
+	@ManyToOne
+	@JoinColumn(name="CODE_MEDIA")
+	private Media media;
 	
-/*	@ManyToOne
+	@ManyToOne
 	@JoinColumn(name="CODE_CLI")
-	private Client client;*/
+	private Client client;
 	
 /*	@ManyToOne
 	@JoinColumn(name="CODE_EMPL")
@@ -61,10 +61,11 @@ public abstract class Operation implements Serializable {
 	
 	
 
-	public Operation(Date dateOperation) {
+	public Operation(Date dateOperation,Client cli, Media m) {
 		super();
 		this.dateOperation = dateOperation;
-		//this.media = media;
+		this.media = m;
+		this.client= cli;
 	}
 
 
@@ -81,16 +82,28 @@ public abstract class Operation implements Serializable {
 		return dateOperation;
 	}
 
+	public Client getClient() {
+		return client;
+	}
+
+
+
+	public void setClient(Client client) {
+		this.client = client;
+	}
+
+
+
 	public void setDateOperation(Date dateOperation) {
 		this.dateOperation = dateOperation;
 	}
 
-//	public Media getMedia() {
-//		return media;
-//	}
-//
-//	public void setMedia(Media media) {
-//		this.media = media;
-//	}
+	public Media getMedia() {
+		return media;
+	}
+
+	public void setMedia(Media media) {
+		this.media = media;
+	}
 
 }

@@ -38,13 +38,13 @@ public class Client extends Personne {
 	private Collection<Operation> operations;*/
 
 	//@OneToMany(mappedBy = "client", fetch = FetchType.LAZY)
-	@OneToMany(mappedBy = "client", fetch = FetchType.LAZY,cascade = {CascadeType.REMOVE,CascadeType.MERGE, CascadeType.PERSIST }, orphanRemoval = false)
-	private Collection<Emprunt> emprunts;
+//	@OneToMany(mappedBy = "client", fetch = FetchType.LAZY,cascade = {CascadeType.REMOVE,CascadeType.MERGE, CascadeType.PERSIST }, orphanRemoval = false)
+//	private Collection<Emprunt> emprunts;
 	
 	//@OneToMany(mappedBy = "client", fetch = FetchType.LAZY,cascade = CascadeType.PERSIST)
 	//@OneToMany(mappedBy = "client", fetch = FetchType.LAZY,cascade = CascadeType.REMOVE, orphanRemoval = false)
 	@OneToMany(mappedBy = "client", fetch = FetchType.LAZY,cascade = {CascadeType.REMOVE,CascadeType.MERGE, CascadeType.PERSIST }, orphanRemoval = false)
-	private Collection<Retour> retours;
+	private Collection<Operation> operation;
 	
 	public Client() {
 		super();
@@ -106,24 +106,24 @@ public class Client extends Personne {
 	}
 
 
-	public Collection<Emprunt> getEmprunts() {
-		return emprunts;
-	}
-
-
-	public void setEmprunts(Collection<Emprunt> emprunts) {
-		this.emprunts = emprunts;
-	}
-
-
-	public Collection<Retour> getRetours() {
-		return retours;
-	}
-
-
-	public void setRetours(Collection<Retour> retours) {
-		this.retours = retours;
-	}
+//	public Collection<Emprunt> getEmprunts() {
+//		return emprunts;
+//	}
+//
+//
+//	public void setEmprunts(Collection<Emprunt> emprunts) {
+//		this.emprunts = emprunts;
+//	}
+//
+//
+//	public Collection<Retour> getRetours() {
+//		return retours;
+//	}
+//
+//
+//	public void setRetours(Collection<Retour> retours) {
+//		this.retours = retours;
+//	}
 
 	
 	

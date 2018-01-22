@@ -9,9 +9,9 @@ import org.springframework.data.repository.query.Param;
 
 import com.miage.entities.Media;
 
-public interface MediaRepository extends JpaRepository<Media, String> {
+public interface MediaRepository extends JpaRepository<Media, Long> {
 	@Query("select m from Media m where m.codeMedia=:x")
-	public Page<Media> lstMedia(@Param("x")String idcli, Pageable pageable);
+	public Page<Media> lstMedia(@Param("x")Long idcli, Pageable pageable);
 	
 	
 	@Query("select e from Media e where e.nom like :x")

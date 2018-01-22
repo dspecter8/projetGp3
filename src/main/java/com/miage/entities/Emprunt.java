@@ -15,9 +15,10 @@ import javax.persistence.OneToMany;
 @DiscriminatorValue("EMP")
 public class Emprunt extends Operation {
 	
-	@ManyToOne
-	@JoinColumn(name="CODE_CLI")
-	private Client client;
+	private Date dateLimit;
+//	@ManyToOne
+//	@JoinColumn(name="CODE_CLI")
+//	private Client client;
 	
 	@OneToMany(mappedBy = "emprunt", fetch = FetchType.LAZY,cascade = {CascadeType.REMOVE,CascadeType.MERGE, CascadeType.PERSIST }, orphanRemoval = false)
 	private Collection<Livre> livres;
@@ -33,17 +34,25 @@ public class Emprunt extends Operation {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Emprunt(Date dateOperation, Client client) {
-		super(dateOperation);
-		this.client = client;
+	public Emprunt(Date dateOperation, Client client, Media m, Date dateLimit) {
+		super(dateOperation, client,m);
+		this.dateLimit= dateLimit;
 	}
 
-	public Client getClient() {
-		return client;
+	public Date getDateLimit() {
+		return dateLimit;
 	}
 
-	public void setClient(Client client) {
-		this.client = client;
+	public void setDateLimit(Date dateLimit) {
+		this.dateLimit = dateLimit;
 	}
+
+//	public Client getClient() {
+//		return client;
+//	}
+//
+//	public void setClient(Client client) {
+//		this.client = client;
+//	}
 
 }

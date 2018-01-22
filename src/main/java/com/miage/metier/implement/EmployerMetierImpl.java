@@ -90,15 +90,15 @@ public class EmployerMetierImpl implements IEmployerMetier {
 	}
 
 	@Override
-	public Media consulterMedia(String codeMedia) {
-		Media m = mediaRep.findOne(codeMedia);
+	public Media consulterMedia(Long codeMedia) {
+		Media m = mediaRep.getOne(codeMedia);
 		if (m == null)
 			throw new RuntimeException("Media introuvable");
 		return m;
 	}
 
 	@Override
-	public void modifierMedia(String codeMedia, Media media) {
+	public void modifierMedia(Long codeMedia, Media media) {
 		Media m = consulterMedia(codeMedia);
 		if (m instanceof Livre) {
 			Livre l = (Livre) m;
@@ -134,20 +134,20 @@ public class EmployerMetierImpl implements IEmployerMetier {
 	}
 
 	@Override
-	public void desactiverMedia(String codeMedia) {
+	public void desactiverMedia(Long codeMedia) {
 		Media m = consulterMedia(codeMedia);
 		m.setEtat(0);
 	}
 
 	@Override
-	public void activerMedia(String codeMedia) {
+	public void activerMedia(Long codeMedia) {
 		Media m = consulterMedia(codeMedia);
 		m.setEtat(1);
 
 	}
 
 	@Override
-	public Page<Media> lstMedia(String codeMedia, int page, int siez) {
+	public Page<Media> lstMedia(Long codeMedia, int page, int siez) {
 		return mediaRep.lstMedia(codeMedia, new PageRequest(page, siez));
 	}
 

@@ -70,7 +70,7 @@ public class KfhMediaApplication implements CommandLineRunner {
 				new Date(), "Non actif", adm);
 		Media media = mRep.save(new Audio("nom", 45, 1, new Date(), "description", "photo", empl1, "chateur",
 				new Date(), "nomStudio"));
-		Emprunt empr = opeRep.save(new Emprunt(new Date(), client));
+		Emprunt empr = opeRep.save(new Emprunt(new Date(), client, media,new Date()));
 		Employer emModif = new Employer("Modif11", "pre222nom", "email4", "mot222DePasse", "ad2222ress", new Date(),
 				"Non actif", adm);
 		// Test metier

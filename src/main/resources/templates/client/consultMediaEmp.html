@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="client/clientTemplate">
+<head>
+<title>Getting Started: Handling Form Submission</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<div layout:fragment="corps">
+		<div class="container-fluid">
+			<h3>Medias Emp</h3>
+			<div class="row-sm-2 border">
+				<div class="collapse navbar-collapse"
+					id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="hidden"><a href="#page-top"></a></li>
+						<li><a class="page-scroll first" th:href="@{/client/consultaEmp}">Audio</a></li>
+						<li><a class="page-scroll" th:href="@{/client/consultlEmp}">Livre</a></li>
+						<li><a class="page-scroll" th:href="@{/client/consultvEmp}">Video</a></li>
+					</ul>
+				</div>
+
+				<div class="row-sm-10 border border-primary">
+					<div class="panel panel-primary">
+						<div class="panel-body">
+							<section layout:fragment="corpMedia">
+								
+							</section>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

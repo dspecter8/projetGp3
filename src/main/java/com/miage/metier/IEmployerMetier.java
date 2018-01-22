@@ -28,21 +28,21 @@ public interface IEmployerMetier {
 	public Page<Client> lstClient(Long codeclient, int page, int siez);
 
 	// Media
-	public Media consulterMedia(String codeMedia);
+	public Media consulterMedia(Long codeMedia);
 
 	public void ajouterLivre(Livre media);
 	public void ajouterVideo(Video media);
 	public void ajouterAudio(Audio media);
 
-	public void modifierMedia(String codeMedia, Media media);
+	public void modifierMedia(Long codeMedia, Media media);
 
-	public void desactiverMedia(String codeMedia);
+	public void desactiverMedia(Long codeMedia);
 
-	public void activerMedia(String codeMedia);
+	public void activerMedia(Long codeMedia);
 
-	public Page<Media> lstMedia(String codeMedia, int page, int siez);
+	public Page<Media> lstMedia(Long codeMedia, int page, int siez);
 
-	public Page rechercherMediaByName(String codeclient);
+	public Page rechercherMediaByName(String nom);
 
 
 	// AbonnementClient
